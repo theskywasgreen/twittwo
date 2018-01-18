@@ -70,7 +70,8 @@ resize: vertical;
 
 .center {
   text-align: center;
-  background: #ffffff;
+  background: $white;
+
 
   h1 {
     color: #1da1f3;
@@ -95,6 +96,7 @@ resize: vertical;
 .container {
   margin: 0 auto;
   width: 850px;
+  background: $white;
 }
 
 .container .jumbotron {
