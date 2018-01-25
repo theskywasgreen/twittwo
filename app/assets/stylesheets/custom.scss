@@ -8,12 +8,35 @@ $main_blue: #1da1f3;
 $pale_blue: #e6ecf0;
 $light_gray: #66757f;
 $white: #ffffff;
+$btn: #31adad;
+$btn_hover: #009999;
+$dark_text: #14161b;
+$input_bg: #fafeaf;
+$placeholder: #95a6b2;
 
 // fonts
 $logo_font: 'Leckerli One', cursive;
 $main_font: 'Montserrat', sans-serif;
 
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
 /* Universal */
+
 body {
   padding-top: 50px;
   background: $pale_blue;
@@ -24,12 +47,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 5em;
-  letter-spacing: -2px;
+  font-size: 2.5em;
+  letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
-  font-family: $logo_font;
-  color: $main_blue;
+  font-family: $main_font;
+  color: $dark_text;
   font-weight: bold;
 }
 
@@ -46,7 +69,8 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
-  color: $light_gray;
+  color: $btn;
+  padding: 10px;
 }
 
 a {
@@ -68,12 +92,154 @@ resize: vertical;
 
 /* Header */
 
+// Logo SVG
+
+path {
+  font-size: 128px;
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  fill: transparent;
+  animation: dash 1.5s linear forwards;
+}
+
+@keyframes dash {
+  0% {
+    fill: transparent;
+  }
+
+  10% {
+    fill: transparent;
+    stroke-dashoffset: 700;
+  }
+
+  30% {
+    fill: transparent;
+  }
+
+  40% {
+    fill: rgba(29, 161, 243, 0.3);
+    stroke-dashoffset: 0;
+  }
+
+  80% {
+    fill: rgba(29, 161, 243, 1);
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    fill: #1da1f3;
+    stroke-dashoffset: 0;
+  }
+}
+
+// path:first-child  { animation-delay: 0.1s }
+path:nth-child(2) { animation-delay: 0.1s }
+path:nth-child(3) { animation-delay: 0.2s }
+path:nth-child(4) { animation-delay: 0.3s }
+path:nth-child(5) { animation-delay: 0.4s }
+path:nth-child(6) { animation-delay: 0.5s }
+path:nth-child(7) { animation-delay: 0.52s }
+
+
+
+// #slogan h2 {
+//   position: absolute;
+//   margin-left: 50%;
+//   margin-top: -50%;
+//   transform: translate(-50%, -50%);
+//   animation-duration: 0.5s;
+//   animation-name: drop;
+// }
+//
+// @keyframes drop {
+//   to {
+//     margin-top: -10px;
+//     color: $light_gray;
+//     font-size: 2em;
+//   }
+// }
+
+#slogan h2 {
+  opacity: 0;
+  animation: appear 7s linear 1.3s forwards;
+  // animation-delay: 1s;
+}
+
+// @keyframes fade {
+//   // 0% {
+//   //   color: $white;
+//   //   opacity: 0;
+//   // }
+//   //
+//   // 20% {
+//   //   color: $white;
+//   //   opacity: 0;
+//   // }
+//   //
+//   // 30% {
+//   //   color: $light_gray;
+//   //   opacity: 0.2;
+//   //   font-size: 2em;
+//   // }
+//   //
+//   // 50% {
+//   //   color: $light_gray;
+//   //   font-size: 4em;
+//   // }
+//   //
+//   // 100% {
+//   //   color: $light_gray;
+//   //   font-size: 2em;
+//   //   opacity: 1;
+//   // }
+//
+//   0% {
+//     opacity: 0;
+//   }
+//
+//   50% {
+//     color: $light_gray;
+//     opacity: 0.5;
+//     font-size: 3em;
+//   }
+//
+//   90% {
+//     opacity: 0.5;
+//   }
+//
+//   100% {
+//     color: $light_gray;
+//     opacity: 1;
+//   }
+// }
+
+.btn-animation {
+  opacity: 0;
+  animation: appear 4s linear 1.3s forwards;
+  margin-bottom: 5px;
+}
+
+@keyframes appear {
+  0%{
+    opacity: 0;
+  }
+  10% {
+  opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
 .center {
   text-align: center;
   background: $white;
 
 
   h1 {
+    padding-top: 10px;
+    letter-spacing: -2px;
     color: #1da1f3;
     font-family: $logo_font;
     font-size: 8em;
@@ -88,20 +254,34 @@ resize: vertical;
   h2 {
     color: $light_gray;
     font-size: 2em;
-    margin: 3px auto 30px auto;
-    opacity: 0.5;
+    margin: 0 auto 50px auto;
   }
 }
 
 .container {
-  margin: 0 auto;
-  width: 850px;
+  padding: 0;
+  width: 100%;
+  margin: 0px auto 0 auto;
   background: $white;
 }
 
-.container .jumbotron {
+.wrapper {
+  padding: 10px;
+  width: 70%;
+  margin: 20px auto 0 auto;
+  background: $white;
+}
+
+.signup {
+  background: $pale_blue;
+}
+
+
+.jumbotron {
   border-radius: 0px;
-  padding-top: 10px;
+  padding: 10px 0;
+  background: $white;
+  // margin-top: -20px;
 }
 
 #logo {
@@ -117,11 +297,14 @@ resize: vertical;
 }
 
 .btn-custom {
-  background: $main_blue;
+  background: $btn;
   color: $white;
+  margin: 0 0 20px 0;
+  border-radius: 30px;
 
   &:hover {
-    color: $light_gray;
+    background: $btn_hover;
+    color: $white;
   }
 }
 
@@ -164,4 +347,88 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 15px;
+}
+
+// User show Page aside
+
+.user aside {
+  margin: 10px;
+  background: $white;
+}
+
+aside {
+  section.user_info {
+    margin-top: 20px;
+  }
+  section {
+    padding: 10px 0;
+    margin-top: 20px;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin: 0 10px 0 10px;
+  border-radius: 50%;
+}
+
+.gravatar_edit {
+  margin-top: 15px;
+}
+
+/* forms */
+input {
+  font-family: $main_font;
+
+  &::placeholder {
+    color: $placeholder;
+  }
+}
+
+.form-custom {
+  padding: 15px 10px;
+}
+
+input, textarea, select, .uneditable-input {
+  border-radius: 5px;
+  border: 1px solid $pale_blue;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+/* forms */
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
 }
