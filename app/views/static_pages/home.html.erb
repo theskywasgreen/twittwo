@@ -45,8 +45,9 @@
       </h2>
     </div>
 
-
+    <% if !logged_in? %>
     <%= link_to "Sign up now", signup_path, class: "btn btn-lg btn-custom btn-animation" %>
+    <% end %>
   </div>
 </div>
 

@@ -73,6 +73,16 @@ p {
   padding: 10px;
 }
 
+ul.dropdown-menu a {
+  color: $light_gray;
+
+  &:hover {
+    color: $main_blue;
+    text-decoration: none;
+    background: $white;
+  }
+}
+
 a {
   color: $light_gray;
 
@@ -99,7 +109,7 @@ path {
   stroke-dasharray: 700;
   stroke-dashoffset: 700;
   fill: transparent;
-  animation: dash 1.5s linear forwards;
+  animation: dash 1.2s linear forwards;
 }
 
 @keyframes dash {
@@ -233,12 +243,12 @@ path:nth-child(7) { animation-delay: 0.52s }
 
 
 .center {
+  margin-top: -25px;
   text-align: center;
   background: $white;
 
 
   h1 {
-    padding-top: 10px;
     letter-spacing: -2px;
     color: #1da1f3;
     font-family: $logo_font;
@@ -254,14 +264,14 @@ path:nth-child(7) { animation-delay: 0.52s }
   h2 {
     color: $light_gray;
     font-size: 2em;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 30px auto;
   }
 }
 
 .container {
   padding: 0;
   width: 100%;
-  margin: 0px auto 0 auto;
+  margin: -15px auto 0 auto;
   background: $white;
 }
 
@@ -269,19 +279,22 @@ path:nth-child(7) { animation-delay: 0.52s }
   padding: 10px;
   width: 70%;
   margin: 20px auto 0 auto;
-  background: $white;
-}
-
-.signup {
   background: $pale_blue;
 }
 
+.alert {
+  margin: -20px 0 5px 0;
+}
+
+.user_forms {
+  margin-top: -15px;
+}
 
 .jumbotron {
   border-radius: 0px;
-  padding: 10px 0;
+  padding-top: 40px;
+  padding-bottom: 20px;
   background: $white;
-  // margin-top: -20px;
 }
 
 #logo {
@@ -299,7 +312,6 @@ path:nth-child(7) { animation-delay: 0.52s }
 .btn-custom {
   background: $btn;
   color: $white;
-  margin: 0 0 20px 0;
   border-radius: 30px;
 
   &:hover {
@@ -357,11 +369,9 @@ footer ul li {
 }
 
 aside {
-  section.user_info {
-    margin-top: 20px;
-  }
+
   section {
-    padding: 10px 0;
+    padding: 20px 0;
     margin-top: 20px;
     &:first-child {
       border: 0;
